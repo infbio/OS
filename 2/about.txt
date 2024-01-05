@@ -1,0 +1,8 @@
+In user space, the given string was reversed and sent back to user space. This requires three parameters.
+    1. input: string delivered by user space
+    2. output : destination of the user space where the inverted string will be stored
+    3. input_len: Length of input used for memory allocation
+Use kmalloc to allocate memory in kernel space. Allocate input_len+1 to put '\0' at the end of the string.
+The following copy_from_user is used to copy the input string from the user space to the assigned kernel buffer. After that, it is inverted and stored in another buffer, temp.
+Use copy_to_user to copy the changed string from kernel buffer to the output of user space.
+If a system call is successful or an unexpected error occurs, use kfree to release all assigned kernel memory.
