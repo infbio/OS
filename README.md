@@ -1,3 +1,4 @@
+## Contents
 1. Newps command
    Command that can output results similar to Linux 'ps' command using the '/proc' file system without using system functions or exec-based functions
 2. System call function
